@@ -250,11 +250,12 @@ Banner Area
   padding: 120px 0px;
   background: #F4FDFF;
   position: relative;
-  background: url("../images/bg/page-header.jpg") no-repeat;
+  background: url("../images/about.jpg") no-repeat;
   background-size: cover;
   background-position: 0px 10%;
   text-align: center;
 }
+
 
 .page-header:before {
   position: absolute;
@@ -263,9 +264,11 @@ Banner Area
   top: 0px;
   width: 100%;
   height: 100%;
-  background: #263b5e;
+  background: #263b5e00;
   opacity: .85;
 }
+
+
 
 .page-header .page-header-content h1 {
   color: #fff;
@@ -664,9 +667,10 @@ Banner 2
 .banner-2 {
   padding-bottom: 220px;
   padding-top: 100px;
-  background: url("../images/banner/banner-4.jpg") center center no-repeat;
+  background: url("../images/front.jpg") center center no-repeat ;
   background-size: cover;
   position: relative;
+
 }
 
 .banner-2:before {
@@ -674,7 +678,7 @@ Banner 2
   content: "";
   left: 0px;
   top: 0px;
-  background: #263b5e;
+  background: #263b5e00;
   width: 100%;
   height: 100%;
   opacity: .9;

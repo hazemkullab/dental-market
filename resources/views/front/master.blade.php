@@ -66,8 +66,11 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ route('website.index') }}">
-                        <img src="{{ asset('webasset/assets/images/logo-dark.png') }}" alt="Edutim"
-                            class="img-fluid">
+                        <div class="sidebar-brand-icon rotate-n-15">
+                            <i class="fas fa-tooth fa-2x"> DM </i>
+                            {{-- <div class="sidebar-brand-text mx-3"> Dental Market </div> --}}
+                        </div>
+                        {{-- <img src="{{ asset('webasset/assets/images/lp.png') }}" alt="Dental market" class="img-fluid"> --}}
                     </a>
 
                     <!-- Toggler -->
@@ -131,25 +134,37 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item dropdown" {{ request()->routeIs('website.Languages') ? 'active' : '' }}>
-                                <a class="nav-link dropdown-toggle" href="#" id="navbar3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">{{ __('web.Languages') }}<i class="fa fa-angle-down"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbar3">
-                                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                        <a hreflang="{{ $localeCode }}" class="dropdown-item "
-                                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                            {{ $properties['native'] }}
-
-                                        </a>
-                                    @endforeach
-                                </div>
-                            </li>
                         </ul>
+                        @if (Auth::check())
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbar3" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Welcom, {{ Auth::user()->name }} <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbar3">
+                                        <a class="dropdown-item " href="{{ route('website.my_products') }}">
+                                            My Products
+                                        </a>
+                                        <a class="dropdown-item " href="#"
+                                            onclick="event.preventDefault ();document.getElementById('logout-form').submit()">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" class="d-none" action="{{ route('logout') }}"
+                                            method="POST">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        @else
+                            <a href="{{ route('website.login') }}" class="btn btn-main btn-small"
+                                {{ request()->routeIs('website.login') ? 'active' : '' }}><i
+                                    class="fa fa-sign-in-alt mr-2"></i>{{ __('web.Login') }}</a>
+                        @endif
 
-                        <a href="{{ route('website.login') }}" class="btn btn-main btn-small"><i
-                                class="fa fa-sign-in-alt mr-2"></i>{{ __('web.Login') }}</a>
+
+
 
                     </div> <!-- / .navbar-collapse -->
                 </div> <!-- / .container -->
@@ -183,27 +198,6 @@
 
     @yield('content')
 
-    <section class="cta-2">
-        <div class="container">
-            <div class="row align-items-center subscribe-section ">
-                <div class="col-lg-6">
-                    <div class="section-heading white-text">
-                        <span class="subheading">Newsletter</span>
-                        <h3>Join our community of students</h3>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#">
-                            <input type="text" class="form-control" placeholder="Email Address">
-                            <a href="#" class="btn btn-main">Subscribe<i class="fa fa-angle-right ml-2"></i>
-                            </a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="footer pt-120">
         <div class="container">
@@ -215,27 +209,35 @@
                             accusamus.Lorem ipsum dolor sit amet, consectetur adipisicin gelit, sed do eiusmod tempor
                             incididunt .</p>
                         <ul class="list-inline footer-socials">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                            <li class="list-inline-item"><a
+                                    href="https://www.facebook.com/sharer/sharer.php?u={{ request()->url() }}"><i
+                                        class="fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a
+                                    href="https://twitter.com/intent/tweet?url=test.com&text={{ request()->url() }}&text ="><i
+                                        class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a
+                                    href="https://www.linkedin.com/shareArticle?mini=true&url={{ request()->url() }}&text ="><i
+                                        class="fab fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a
+                                    href="https://pinterest.com/pin/create/button/?url={{ request()->url() }}&text = "><i
+                                        class="fab fa-pinterest"></i></a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-sm-6 col-md-6">
                     <div class="footer-widget mb-5 mb-lg-0">
-                        <h5 class="widget-title">Company</h5>
+                        <h5 class="widget-title">Our Website</h5>
                         <ul class="list-unstyled footer-links">
                             <li><a href="{{ route('website.about') }}">About</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Terms & Condition</a></li>
-                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="{{ route('website.contact') }}">Contact us</a></li>
+                            <li><a href="{{ route('website.dealers') }}">Dealers</a></li>
+                            {{-- <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Privacy policy</a></li> --}}
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-6 col-md-6">
+                {{-- <div class="col-lg-2 col-sm-6 col-md-6">
                     <div class="footer-widget mb-5 mb-lg-0">
                         <h5 class="widget-title">Courses</h5>
                         <ul class="list-unstyled footer-links">
@@ -246,7 +248,7 @@
                             <li><a href="#">Social Marketing</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-3 col-sm-6 col-md-6">
                     <div class="footer-widget footer-contact mb-5 mb-lg-0">
                         <h5 class="widget-title">Contact </h5>
@@ -255,20 +257,20 @@
                             <li><i class="bi bi-headphone"></i>
                                 <div>
                                     <strong>Phone number</strong>
-                                    (68) 345 5902
+                                    (+972)59-515-9513
                                 </div>
 
                             </li>
                             <li> <i class="bi bi-envelop"></i>
                                 <div>
                                     <strong>Email Address</strong>
-                                    info@yourdomain.com
+                                    hazemdevelopment@gmail.com
                                 </div>
                             </li>
                             <li><i class="bi bi-location-pointer"></i>
                                 <div>
                                     <strong>Office Address</strong>
-                                    Moon Street Light Avenue
+                                    alnaser street
                                 </div>
                             </li>
                         </ul>
@@ -282,8 +284,14 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="col-lg-6">
                         <div class="footer-logo">
-                            <img src="{{ asset('webasset/assets/images/logo-white.png') }}" alt="Edutim"
-                                class="img-fluid">
+                            <a href="{{ route('website.index') }}">
+                            {{-- <img src="{{ asset('webasset/assets/images/lww.png') }}" alt="Edutim"
+                                class="img-fluid"> --}}
+                            <div class="sidebar-brand-icon rotate-n-15">
+                                <i class="fas fa-tooth fa-2x"> Dental Market </i>
+                                {{-- <div class="sidebar-brand-text mx-3"> Dental Market </div> --}}
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-lg-6">

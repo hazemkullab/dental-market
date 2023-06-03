@@ -32,11 +32,12 @@
                 <div class="col-md-6">
                     <div class="woocommerce-notices-wrapper"></div>
                     <h2 class="font-weight-bold mb-4">Login</h2>
-                    <form class="woocommerce-form woocommerce-form-login login" method="post">
+                    <form class="woocommerce-form woocommerce-form-login login" method="post" action="{{ route('login') }}" >
+                        @csrf
                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                            <label for="username">Username or email address&nbsp;<span class="required">*</span></label>
+                            <label for="username">Email address&nbsp;<span class="required">*</span></label>
                             <input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control"
-                                name="username" id="username" autocomplete="username" value="">
+                                name="email" id="username" autocomplete="username" value="">
                         </p>
                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                             <label for="password">Password&nbsp;<span class="required">*</span></label>
@@ -62,25 +63,25 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="font-weight-bold mb-4">Register</h2>
-                    <form method="post" class="woocommerce-form woocommerce-form-register register">
+                    {{-- <form method="post" class="woocommerce-form woocommerce-form-register register" action="{{ route('register') }}">
 
                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                             <label>User Name&nbsp;<span class="required">*</span></label>
-                            <input type="email"
+                            <input type="username"
                                 class="woocommerce-Input woocommerce-Input--text input-text form-control"
-                                name="user-name" id="" autocomplete="user-name" value="">
+                                name="email" id="username" autocomplete="user-name" value="">
                         </p>
                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                             <label>Email address&nbsp;<span class="required">*</span></label>
                             <input type="email"
                                 class="woocommerce-Input woocommerce-Input--text input-text form-control" name="email"
-                                id="" autocomplete="email" value="">
+                                id="email" autocomplete="email" value="">
                         </p>
                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                             <label>Password&nbsp;<span class="required">*</span></label>
                             <input type="password"
                                 class="woocommerce-Input woocommerce-Input--text input-text form-control"
-                                name="password" id="" autocomplete="password" value="">
+                                name="password" id="password" autocomplete="password" value="">
                         </p>
                         <p class="woocommerce-FormRow form-row">
                             <input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce"
@@ -88,6 +89,66 @@
                             <button type="submit" class="woocommerce-Button button" name="register"
                                 value="Register">Register</button>
                         </p>
+                    </form> --}}
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="woocommerce-Button button" name="register"
+                                value="Register">Register</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

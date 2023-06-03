@@ -5,8 +5,8 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center">
     <h1> {{ ($type =='trash')?'Trashed dealer':'All products' }} </h1>
-
-    <a class="btn btn-outline-success" href="{{ route('admin.products.create') }}">Add New dealer</a>
+++
+    <a class="btn btn-outline-success" href="{{ route('admin.products.create') }}">Add New product</a>
 
 </div>
 @if (session('msg'))

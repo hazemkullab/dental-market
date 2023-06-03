@@ -65,6 +65,9 @@ Route::get('/products',[MainController::class, 'products'])->name('website.produ
 Route::get('/dealers/{slug}',[MainController::class, 'dealers_single'])->name('website.dealers_single');
 Route::get('/products/{slug}',[MainController::class, 'products_single'])->name('website.products_single');
 Route::get('/buy_product/{product:slug}',[MainController::class, 'buy_product'])->name('website.buy_product');
+Route::get('/buy_product/{id}/thanks',[MainController::class, 'buy_product_thanks'])->name('website.buy_product_thanks');
+Route::get('/my-products',[MainController::class, 'my_products'])->name('website.my_products');
+Route::get('/products/{slug}/private',[MainController::class, 'products_private'])->name('website.products_private');
 Route::get('/user/login',[MainController::class, 'login'])->name('website.login');
 
 

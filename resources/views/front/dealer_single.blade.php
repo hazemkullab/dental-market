@@ -60,9 +60,9 @@
                 <div class="single-course-details ">
                     <h4 class="course-title">Description</h4>
                     {!! $dealer->trans_content !!}
+                    </div>
 
-
-                    <div class="course-widget course-info">
+                    {{-- <div class="course-widget course-info">
                         <h4 class="course-title">What You will Learn?</h4>
                         <ul>
                             <li>
@@ -90,11 +90,11 @@
                                 Cut away a person from their background
                             </li>
                         </ul>
-                    </div>
-                </div>
+                    </div> --}}
+
                 <!--  COurse Topics End -->
 
-                <div class="course-widget course-info">
+                {{-- <div class="course-widget course-info">
                     <h4 class="course-title">About the instructors</h4>
                     <div class="instructor-profile">
                         <div class="profile-img">
@@ -165,7 +165,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>
@@ -176,7 +176,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <p>Showing 1-6 of 8 results</p>
+                    <p> All Products </p>
                 </div>
 
                 <div class="col-lg-4">

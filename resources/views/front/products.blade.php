@@ -3,9 +3,6 @@
 @section('content')
 
 <section class="page-header">
-     {{-- <div class="page-header">
-        <img src="{{ asset('webasset/assets/images/front.png') }}" alt="" class="img-fluid">
-    </div> --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -31,9 +28,9 @@
 
    <div class="container">
         <div class="row">
-            @foreach ($dealers as $dealer)
+            @foreach ($products as $product)
             <div class="col-lg-4 col-md-6 mb-4">
-                @include('front.sections.dealer')
+                @include('front.sections.product')
             </div>
             @endforeach
     </div>
@@ -46,7 +43,7 @@
                     <li class="page-num"><a href="#">3</a></li>
                 </ul>
             </nav> --}}
-            {{ $dealers->links() }}
+            {{ $products->links() }}
         </div>
     </div>
    </div>

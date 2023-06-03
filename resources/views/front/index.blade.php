@@ -7,11 +7,15 @@
 
     <!--search overlay end-->
     <section class="banner banner-2">
+            {{-- <div class="about-img2">
+                <img src="{{ asset('webasset/assets/images/front.png') }}" alt="" class="img-fluid">
+            </div> --}}
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-8">
+                <div class="col-md-12 col-lg-8" >
                     <div class="banner-content center-heading">
-                        <span class="subheading">Expert instruction</span>
+
+                        <span class="subheading">Expert Dentist</span>
                         <h1>Build Skills With Experts Any Time, Anywhere </h1>
                         <p>We invest in personnel, technological innovations and infrastructure and have established
                             regional and international offices.</p>
@@ -34,7 +38,7 @@
                                 <i class="bi bi-laptop"></i>
                             </div> --}}
                             <h4>{{ $item->trans_name }}</h4>
-                            <p>({{ $item->dealers->count() }} Dealers</p>
+                            <p>{{ $item->dealers->count() }} Dealers</p>
                         </a>
                     </div>
                     @endforeach
@@ -48,8 +52,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <span class="subheading">Top Trending Courses</span>
-                        <h3>Our Popular Online Courses</h3>
+                        <span class="subheading">Top Trending Dealers</span>
+                        <h3>Our Popular Online Dealers</h3>
                     </div>
                 </div>
 
@@ -68,7 +72,7 @@
             </div>
         </div>
     </section>
-    <section class="about-section section-padding about-2">
+    {{-- <section class="about-section section-padding about-2">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
@@ -91,8 +95,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="feature-2">
+    </section> --}}
+    {{-- <section class="feature-2">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-3 col-md-6">
@@ -141,16 +145,15 @@
                 </div>
             </div>
         </div>
-    </section>
-
+    </section> --}}
     <!--course section start-->
     <section class="section-padding course-grid">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-7">
                     <div class="section-heading center-heading">
-                        <span class="subheading">Top Trending Courses</span>
-                        <h3>Over 200+ New Online Courses</h3>
+                        {{-- <span class="subheading"></span> --}}
+                        <h3>Top Trending Dealers</h3>
                     </div>
                 </div>
             </div>
@@ -162,7 +165,6 @@
                     <li><a href="#" data-filter=".cat{{ $item->id }}">{{ $item->trans_name }}</a></li>
                     @endforeach
                     {{-- <li><a href="#" data-filter=".cat1">printing</a></li> --}}
-
                 </ul>
             </div>
 
@@ -179,7 +181,7 @@
         <!--course-->
     </section>
     <!--course section end-->
-    <section class="counter-wrap section-padding counter-section">
+    {{-- <section class="counter-wrap section-padding counter-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -222,7 +224,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!--course section start-->
     {{-- <section class="section-padding video-section2 clearfix">
@@ -243,7 +245,7 @@
         <!--course-->
     </section> --}}
     <!--course section end-->
-    <section class="testimonial section-padding">
+    {{-- <section class="testimonial section-padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -487,7 +489,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 </body>

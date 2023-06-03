@@ -29,7 +29,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        Payment
+                        <script src="https://eu-test.oppwa.com/v1/paymentWidgets.js?checkoutId={{ $checkoutId }}"></script>
+                        <form action="{{ route('website.buy_product_thanks',$product->id) }}" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+
+
                     </div>
                     <div class="col-md-5">
                         <div id="order_review" class="woocommerce-checkout-review-order w-100">
@@ -38,27 +41,17 @@
                                 <thead>
                                     <tr>
                                         <th class="product-name">Product</th>
-                                        <th class="product-total">Total</th>
+                                        <th class="product-total">{{ $product->trans_name }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="cart_item">
-                                        <td class="product-name">
-                                            Beanie with Logo&nbsp;
-                                            <strong class="product-quantity">× 2</strong>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="woocommerce-Price-amount amount"><span
-                                                    class="woocommerce-Price-currencySymbol">৳&nbsp;</span>36.00</span>
-                                        </td>
-                                    </tr>
                                 </tbody>
                                 <tfoot>
 
                                     <tr class="order-total">
                                         <th>Total</th>
                                         <td><strong><span class="woocommerce-Price-amount amount"><span
-                                                        class="woocommerce-Price-currencySymbol">৳&nbsp;</span>54.00</span></strong>
+                                                        class="woocommerce-Price-currencySymbol"></span></span> {{ $product->price }} $ </strong>
                                         </td>
                                     </tr>
                                 </tfoot>

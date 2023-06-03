@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('adminasset/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('adminasset/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     @yield('styles')
 
@@ -48,7 +49,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -113,7 +114,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name}}</span>
-                               
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -122,11 +123,11 @@
                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-                            
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                            
+
 
                             </div>
                         </li>
@@ -182,14 +183,14 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a 
+                    <a
                     class="btn btn-primary" href="{{ route('logout') }}"
                     onclick="event.preventDefault"
                     document.getElementById('logout-form').submit();
                     >Logout</a>
                 </div>
             </div>
-        </div> 
+        </div>
     </div> --}}
 
     <!-- Bootstrap core JavaScript-->
@@ -202,15 +203,17 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('adminasset/js/sb-admin-2.min.js') }}"></script>
 
-    
-    
+
+
     <!-- Page level plugins -->
     <script src="{{ asset('adminasset/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('adminasset/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    
+
     <!-- Page level custom scripts -->
     <script src="{{ asset('adminasset/js/demo/datatables-demo.js') }}"></script>
-
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script> const userId = '{{ Auth::id() }}';</script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>
 

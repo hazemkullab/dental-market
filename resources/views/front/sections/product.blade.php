@@ -20,11 +20,11 @@
 
         <div class="course-footer d-lg-flex align-items-center justify-content-between">
             <div class="course-meta">
-                <span class="course-student"><i class="bi bi-group"></i>340</span>
-                <span class="course-duration"><i class="bi bi-badge3"></i>82 Lessons</span>
+                {{-- <span class="course-student"><i class="bi bi-group"></i>340</span>
+                <span class="course-duration"><i class="bi bi-badge3"></i>82 Lessons</span> --}}
             </div>
 
-            <div class="buy-btn"><a href="{{ route('website.products_single' , $product->slug) }}" class="btn btn-main-2 btn-small">Details</a></div>
+            <div class="buy-btn"><a href="{{ route('website.products_single' , $product->slug) }}" class="btn btn-main-2 btn-small">Buy now</a></div>
         </div>
     </div>
 </div>

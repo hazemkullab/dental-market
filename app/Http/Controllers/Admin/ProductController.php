@@ -41,6 +41,7 @@ class ProductController extends Controller
             'en_content'=>'required|min:20',
             'ar_content'=>'required|min:20',
             'image'=>'required|image|mimes:png,jpg,jpeg,gif,svg',
+            'price'=>'required|numeric',
             'discount'=>'nullable|numeric',
             'dealer_id'=>'required|exists:dealers,id'
         ]);
@@ -71,6 +72,7 @@ class ProductController extends Controller
             'excerpt'=>json_encode($excerpt,JSON_UNESCAPED_UNICODE),
             'content'=>json_encode($content,JSON_UNESCAPED_UNICODE),
             'image'=>$imagename,
+            'price'=>$request->price,
             'discount'=>$request->discount,
             'dealer_id'=>$request->dealer_id
 
@@ -112,7 +114,8 @@ class ProductController extends Controller
             'en_content'=>'required|min:20',
             'ar_content'=>'required|min:20',
             'image'=>'nullable',
-            'discount'=>'nullable',
+            'price'=>'required|numeric',
+            'discount'=>'nullable|numeric',
             'dealer_id'=>'required|exists:dealers,id'
         ]);
         $product= Product::findOrFail($id);
@@ -145,6 +148,7 @@ class ProductController extends Controller
             'excerpt'=>json_encode($excerpt,JSON_UNESCAPED_UNICODE),
             'content'=>json_encode($content,JSON_UNESCAPED_UNICODE),
             'image'=>$imagename,
+            'price'=>$request->price,
             'discount'=>$request->discount,
             'dealer_id'=>$request->dealer_id
 

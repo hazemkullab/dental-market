@@ -2,6 +2,9 @@
 @section('title','Homepage | '.env('APP_NAME'))
 @section('content')
 
+@if (session('msg'))
+    <div class="alert alert-{{ session('type') }}">{{ session('msg') }}</div>
+@endif
 <section class="page-header">
     <div class="container">
         <div class="row justify-content-center">
@@ -60,7 +63,7 @@
                     {!! $product->trans_content !!}
 
 
-                    <div class="course-widget course-info">
+                    {{-- <div class="course-widget course-info">
                         <h4 class="course-title">What You will Learn?</h4>
                         <ul>
                             <li>
@@ -88,11 +91,11 @@
                                 Cut away a person from their background
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
                 <!--  Course Topics -->
 
-                <div class="course-widget course-info">
+                {{-- <div class="course-widget course-info">
                     <h4 class="course-title">About the Doctor</h4>
                     <div class="instructor-profile">
                         <div class="profile-img">
@@ -117,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="col-lg-4">
@@ -139,7 +142,7 @@
 
                     <div class="course-widget single-info">
                         <i class="bi bi-group"></i>
-                        Enrolled <span>101 dentist</span>
+                        suggested by <span>101 dentist</span>
                     </div>
 
 
@@ -153,34 +156,8 @@
                         </ul>
                     </div>
 
-                    <div class="course-widget course-metarials">
-                        <h4 class="course-title">Requirements</h4>
-                        <ul>
-                            <li>
-                                <i class="fa fa-check"></i>
-                                No previous knowledge of Photoshop required.
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i>
-                                If you have Photoshop installed, that's great.
-                            </li>
-                            <li>
-                                <i class="fa fa-check"></i>
-                                If not, I'll teach you how to get it on your computer.
-                            </li>
 
-                        </ul>
-                    </div>
 
-                    <div class="course-widget">
-                        <h4 class="course-title">Tags</h4>
-                        <div class="single-course-tags">
-                            <a href="#">Web Deisgn</a>
-                            <a href="#">Development</a>
-                            <a href="#">Html</a>
-                            <a href="#">css</a>
-                        </div>
-                    </div>
 
 
 

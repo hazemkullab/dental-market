@@ -42,20 +42,19 @@
                     <div class="col-lg-12 col-md-6">
                         <div class="contact-item">
                             <p>Email Us</p>
-                            <h4>support@email.com</h4>
+                            <h4>hazeemdevelopment@gmail.com</h4>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-6">
                         <div class="contact-item">
                             <p>Make a Call</p>
-                            <h4>+45 234 345467</h4>
+                            <h4>+972 59-515-9513</h4>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-6">
                         <div class="contact-item">
                             <p>Corporate Office</p>
-                            <h4>Moon Street Light Avenue, 14/05
-                                Jupiter, JP 80630 </h4>
+                            <h4>alnaser street</h4>
                         </div>
                     </div>
                 </div>
